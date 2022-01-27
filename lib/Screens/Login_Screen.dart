@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:instagram_flutter/Resources/Colors.dart';
 import '/Component/button.dart';
 import '../constants.dart';
 import 'Home_Screen.dart';
 import 'Register_Screen.dart';
+import 'package:instagram_flutter/Resources/Colors.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -34,21 +36,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       height: double.infinity,
                       width: double.infinity,
-                      color: Colors.grey[200],
+                      color: Colors.white,
                       child: SingleChildScrollView(
                         padding:
                             EdgeInsets.symmetric(horizontal: 25, vertical: 120),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              "Sign In",
-                              style: TextStyle(
-                                  fontSize: 50,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 30),
+                            Image.asset('assets/images/FishedLogo.png'),
+                            SizedBox(height: 50),
                             TextFormField(
                               keyboardType: TextInputType.emailAddress,
                               onChanged: (value) {
@@ -56,24 +52,24 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return "Please enter Email";
+                                  return "Epost kan ikke være blank!";
                                 }
                               },
                               textAlign: TextAlign.center,
                               decoration: kTextFieldDecoration.copyWith(
-                                hintText: 'Email',
+                                hintText: 'Epost',
                                 prefixIcon: Icon(
                                   Icons.email,
-                                  color: Colors.black,
+                                  color: fishedBlue,
                                 ),
                               ),
                             ),
-                            SizedBox(height: 30),
+                            SizedBox(height: 25),
                             TextFormField(
                               obscureText: true,
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return "Please enter Password";
+                                  return "Passord kan ikke være blankt!";
                                 }
                               },
                               onChanged: (value) {
@@ -81,15 +77,15 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                               textAlign: TextAlign.center,
                               decoration: kTextFieldDecoration.copyWith(
-                                  hintText: 'Password',
+                                  hintText: 'Passord',
                                   prefixIcon: Icon(
                                     Icons.lock,
-                                    color: Colors.black,
+                                    color: fishedBlue,
                                   )),
                             ),
-                            SizedBox(height: 80),
+                            SizedBox(height: 50),
                             LoginSignupButton(
-                              title: 'Login',
+                              title: 'Logg inn',
                               ontapp: () async {
                                 if (formkey.currentState!.validate()) {
                                   setState(() {
@@ -112,14 +108,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                     showDialog(
                                       context: context,
                                       builder: (ctx) => AlertDialog(
-                                        title: Text("Ops! Login Failed"),
+                                        title: Text(
+                                            "Noe gikk galt, innlogging feilet!"),
                                         content: Text('${e.message}'),
                                         actions: [
                                           TextButton(
                                             onPressed: () {
                                               Navigator.of(ctx).pop();
                                             },
-                                            child: Text('Okay'),
+                                            child:
+                                                Text('Innlogging vellykket!'),
                                           )
                                         ],
                                       ),
@@ -142,21 +140,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                 );
                               },
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Don't have an Account ?",
+                                    "Har ikke du konto?",
                                     style: TextStyle(
-                                        fontSize: 20, color: Colors.black87),
+                                        fontSize: 15, color: fishedBlue),
                                   ),
-                                  SizedBox(width: 10),
+                                  SizedBox(width: 25),
                                   Hero(
                                     tag: '1',
                                     child: Text(
-                                      'Sign up',
+                                      'Registrer deg her!',
                                       style: TextStyle(
-                                          fontSize: 21,
+                                          fontSize: 15,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.black),
+                                          color: fishedBlue),
                                     ),
                                   )
                                 ],

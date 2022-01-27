@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_flutter/Resources/Colors.dart';
 
 class LoginSignupButton extends StatelessWidget {
   final String title;
@@ -22,7 +23,7 @@ class LoginSignupButton extends StatelessWidget {
             ),
           ),
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.black45),
+            backgroundColor: MaterialStateProperty.all(fishedBlue),
           ),
         ),
       ),

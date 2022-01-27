@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_flutter/Resources/Colors.dart';
 import 'Login_Screen.dart';
+import 'package:instagram_flutter/Resources/Colors.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,20 +19,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('You have logged in Successfuly'),
+            Text('Du er logget inn!'),
             SizedBox(height: 50),
             Container(
               height: 60,
               width: 150,
               child: ElevatedButton(
                   clipBehavior: Clip.hardEdge,
+                  style: ElevatedButton.styleFrom(primary: fishedBlue),
                   child: Center(
-                    child: Text('Log out'),
+                    child: Text('Logg ut'),
                   ),
                   onPressed: () async {
                     await _signOut();

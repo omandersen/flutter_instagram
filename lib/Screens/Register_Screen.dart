@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:instagram_flutter/Resources/Colors.dart';
 import '/Component/button.dart';
 
 import '../constants.dart';
@@ -22,12 +23,12 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
+            color: fishedBlue,
             size: 30,
           ),
           onPressed: () => Navigator.of(context).pop(),
@@ -46,7 +47,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     Container(
                       height: double.infinity,
                       width: double.infinity,
-                      color: Colors.grey[200],
+                      color: Colors.white,
                       child: SingleChildScrollView(
                         padding:
                             EdgeInsets.symmetric(horizontal: 25, vertical: 120),
@@ -56,10 +57,10 @@ class _SignupScreenState extends State<SignupScreen> {
                             Hero(
                               tag: '1',
                               child: Text(
-                                "Sign up",
+                                "Registrer deg",
                                 style: TextStyle(
                                     fontSize: 30,
-                                    color: Colors.black,
+                                    color: fishedBlue,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -70,14 +71,14 @@ class _SignupScreenState extends State<SignupScreen> {
                                 email = value.toString().trim();
                               },
                               validator: (value) => (value!.isEmpty)
-                                  ? ' Please enter email'
+                                  ? 'Epost kan ikke være blank!'
                                   : null,
                               textAlign: TextAlign.center,
                               decoration: kTextFieldDecoration.copyWith(
-                                hintText: 'Enter Your Email',
+                                hintText: 'Velg en epost',
                                 prefixIcon: Icon(
                                   Icons.email,
-                                  color: Colors.black,
+                                  color: fishedBlue,
                                 ),
                               ),
                             ),
@@ -86,7 +87,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               obscureText: true,
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return "Please enter Password";
+                                  return "Passord kan ikke være blankt!";
                                 }
                               },
                               onChanged: (value) {
@@ -94,15 +95,15 @@ class _SignupScreenState extends State<SignupScreen> {
                               },
                               textAlign: TextAlign.center,
                               decoration: kTextFieldDecoration.copyWith(
-                                  hintText: 'Choose a Password',
+                                  hintText: 'Velg et passord',
                                   prefixIcon: Icon(
                                     Icons.lock,
-                                    color: Colors.black,
+                                    color: fishedBlue,
                                   )),
                             ),
                             SizedBox(height: 80),
                             LoginSignupButton(
-                              title: 'Register',
+                              title: 'Registrer',
                               ontapp: () async {
                                 if (formkey.currentState!.validate()) {
                                   setState(() {
