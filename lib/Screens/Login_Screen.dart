@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               Navigator.of(ctx).pop();
                                             },
                                             child:
-                                                Text('Innlogging vellykket!'),
+                                                Text('Prøv igjen her'),
                                           )
                                         ],
                                       ),

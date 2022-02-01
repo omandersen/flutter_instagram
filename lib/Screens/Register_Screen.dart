@@ -119,7 +119,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                         content: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Text(
-                                              'Sucessfully Register.You Can Login Now'),
+                                              'Vellykket registrering, du kan nå logge inn.'),
                                         ),
                                         duration: Duration(seconds: 5),
                                       ),
@@ -134,14 +134,14 @@ class _SignupScreenState extends State<SignupScreen> {
                                       context: context,
                                       builder: (ctx) => AlertDialog(
                                         title:
-                                            Text(' Ops! Registration Failed'),
+                                            Text('Registrering feilet'),
                                         content: Text('${e.message}'),
                                         actions: [
                                           TextButton(
                                             onPressed: () {
                                               Navigator.of(ctx).pop();
                                             },
-                                            child: Text('Okay'),
+                                            child: Text('Ok'),
                                           )
                                         ],
                                       ),

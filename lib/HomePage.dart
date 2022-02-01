@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_flutter/resources/color.dart';
+import 'package:instagram_flutter/resources/Colors.dart';
 
 class HomePage extends StatefulWidget {
   @override
